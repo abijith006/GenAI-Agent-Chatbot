@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GenAI LLM SQL Dashboard</title>
+    <style>
+        body { font-family: sans-serif; max-width: 600px; margin: auto; padding: 20px; }
+        input[type=text] { width: 100%; padding: 10px; margin-bottom: 10px; }
+        button { padding: 10px 20px; }
+        .answer { background: #f5f5f5; padding: 10px; border-radius: 5px; white-space: pre-wrap; margin-top: 10px; }
+        iframe { width: 100%; height: 500px; border: none; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h2> GenAI LLM SQL Dashboard</h2>
+    <form method="post">
+        <input type="text" name="question" placeholder="Ask your data a question..." required>
+        <button type="submit">Ask</button>
+    </form>
+
+    {% if answer %}
+    <div class="answer">
+        {{ answer }}
+    </div>
+    {% endif %}
+
+    {% if show_chart %}
+    <iframe src="/static/chart.html"></iframe>
+    {% endif %}
+</body>
+</html>
